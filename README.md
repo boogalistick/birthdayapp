@@ -70,7 +70,7 @@ Generate a SSH key pair that will be used to authenticate on an EC2 instance aft
 
 e.g. ssh-keygen -b 2048 -t rsa -C "email@address"
 
-Take the 2 keys and place them in the keys directory(first create it: mkdir keys)
+Take the 2 keys and place them in the keys directory(first create it in the project root directory: mkdir keys)
 
 Then update in inputs.tf by using the .pub key
 
@@ -90,7 +90,7 @@ The apply takes place quickly, the provisioning part will take a few minutes to 
 Inside the machine the project directory will be in the top level filesystem, cd inside it,
 wait a few minutes for the docker containers to spin up then do docker-compose ps to see them.
 
-it includes a Jenkins build that can be used a continuous deployment tool for newer versions of the application using the Jenkinsfile added in the project
+It includes a Jenkins build that can be used a continuous deployment tool for newer versions of the application using the Jenkinsfile added in the project.
 ```
 
 ## Setting up - Prerequisites
