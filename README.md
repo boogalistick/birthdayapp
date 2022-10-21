@@ -24,7 +24,8 @@ B. If username's birthday is today: { "message": "Hello, <username>! Happy birth
 Note: Use storage/database of your choice. The code should have at least one unit test. 
 ```
 
-## Project structure 
+## Project structure & design
+![Diagram](diagram.png)
 
 - root directory contain docker-compose, Jenkins Dockerfile, Jenkins Groovy pipeline file, terraform.tf, inputs.tf, main.tf, terraform modules file, keys file, templates file
 - modules: contains terraform modules
