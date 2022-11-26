@@ -41,11 +41,21 @@ Note: Use storage/database of your choice. The code should have at least one uni
 
 ## How to run and test locally
 
-- Run server ```python3 main.py``` :
+- In the root of the project, go inside the server forlder
+
 ```cd server```
+
+- Run server:
+
 ```python3 main.py```
-    - First test: ```curl -X PUT http://127.0.0.1:8080/hello/George -H "Content-Type: application/json" -d '{ "dateOfBirth": "2014-10-19" }'```
-    - Second test: ```curl -X GET http://127.0.0.1:8080/hello/George``` will retrieve the number of days the user has until for their birthday, these will also be logged in the server runtime and in the logs folder
+
+ - First test: 
+ ```curl -X PUT http://127.0.0.1:8080/hello/George -H "Content-Type: application/json" -d '{ "dateOfBirth": "2014-10-19" }'```
+ 
+ - Second test: 
+ ```curl -X GET http://127.0.0.1:8080/hello/George``` will retrieve the number of days the user has until for their birthday, these will also be logged in 
+ 
+ the server runtime and in the logs folder
 - Run test without logging ```pytest -q``` 
 - Run test without logging ```cd server/tests, pytest -q -c pytest_logs.ini```
 
