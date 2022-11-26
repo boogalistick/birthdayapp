@@ -42,10 +42,14 @@ Note: Use storage/database of your choice. The code should have at least one uni
 ## How to run and test locally
 
 - Run server ```python3 main.py``` :
+```cd server```
+```python3 main.py```
     - First test: ```curl -X PUT http://127.0.0.1:8080/hello/George -H "Content-Type: application/json" -d '{ "dateOfBirth": "2014-10-19" }'```
     - Second test: ```curl -X GET http://127.0.0.1:8080/hello/George``` will retrieve the number of days the user has until for their birthday, these will also be logged in the server runtime and in the logs folder
 - Run test without logging ```pytest -q``` 
 - Run test without logging ```cd server/tests, pytest -q -c pytest_logs.ini```
+
+- ! There's a workaround to install terraform 0.13.0: https://installvirtual.com/install-specific-version-of-terraform-mac-with-brew/
 
 - Known issues, it may require to install pytest first before running the above commands, fixes ```pip install -U pytest```, it will prompt in red when running ```pytest -q``` to add a Python library to the path, fix: ```export PATH=/Users/Andrei.Pirjol/Library/Python/3.8/bin:$PATH```, lastly it will complain that request library does not exist, fix: ```pip install requests```
 
@@ -84,7 +88,9 @@ variable "public_key" {
 terraform init --backend=false (saves a state locally)
 terraform validate (It clears out the code of any sintax errors)
 terraform plan --out birthdayapp.out
-terraform apply birthdayapp, approve - type in yes
+terraform apply birthdayapp.out
+
+approve - type in yes
 
 The apply takes place quickly, the provisioning part will take a few minutes to initialize, after it finishes, SSH into the machine with the private key from the directory keys/id_rsa using: ssh ec2-user@IP -i keys/id_rsa.
 
@@ -102,11 +108,11 @@ Install Python3
 
 brew update
 brew install python
-pip install -U pytest
-pytest --version
-pip install requests
+pip3 install -U pytest # for Python 3.7.9
+pytest --version # you can check if it's pytest 7.2.0
+pip3 install requests
 or 
-pip install -r requirements
+pip3 install -r requirements
 
 Install terraform:
  
@@ -115,6 +121,5 @@ brew install hashicorp/tap/terraform
 
 If you want to upgrade version of terraform, this is optional:
 
-brew update
 brew upgrade hashicorp/tap/terraform
 ```
